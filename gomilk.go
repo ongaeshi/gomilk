@@ -2,9 +2,11 @@ package main
  
 import (
 	"fmt"
-	"net/http"
 	"io/ioutil"
+	"net/http"
+	"net/url"
 	"os"
+	"strings"
 )
 
 func readURL(url string) (string, error) {
@@ -25,8 +27,8 @@ func readURL(url string) (string, error) {
 }
  
 func main() {
-	contents, err := readURL("http://127.0.0.1:9292/gmilk?package=milkode&query=def+test")
-	// contents, err := readURL("http://www.yahoo.co.jp")
+	query := strings.Join(os.Args[1:], " ")
+	contents, err := readURL(fmt.Sprintf("http://127.0.0.1:9292/gmilk?package=milkode&query=%s", url.QueryEscape(query)))
 
 	if err != nil {
 		fmt.Println(err)
