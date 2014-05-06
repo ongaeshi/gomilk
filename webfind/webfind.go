@@ -1,4 +1,4 @@
-package websearch
+package webfind
 
 import (
 	"fmt"

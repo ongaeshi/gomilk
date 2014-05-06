@@ -6,7 +6,7 @@ import (
 	"github.com/monochromegane/terminal"
 	"github.com/monochromegane/the_platinum_searcher/search/option"
 	"github.com/ongaeshi/gomilk/search"
-	"github.com/ongaeshi/gomilk/websearch"
+	"github.com/ongaeshi/gomilk/webfind"
 	"os"
 	"runtime"
 	"strings"
@@ -80,7 +80,7 @@ func main() {
 	// Create file list from web
 	// @todo Support multi pattern
 	patterns := []string{pattern}
-	websearch.Search(patterns)
+	webfind.Search(patterns)
 
 	// Search from file list
 	searcher := search.Searcher{root, pattern, &opts}
