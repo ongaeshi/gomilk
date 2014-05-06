@@ -4,9 +4,8 @@ import (
 	"fmt"
 	flags "github.com/jessevdk/go-flags"
 	"github.com/monochromegane/terminal"
-	"github.com/monochromegane/the_platinum_searcher/search"
 	"github.com/monochromegane/the_platinum_searcher/search/option"
-	// "github.com/ongaeshi/gomilk/search"
+	"github.com/ongaeshi/gomilk/search"
 	"github.com/ongaeshi/gomilk/websearch"
 	"os"
 	"runtime"
@@ -14,6 +13,8 @@ import (
 )
 
 const version = "0.1.0"
+
+var opts option.Option
 
 func init() {
 	if cpu := runtime.NumCPU(); cpu == 1 {
@@ -24,7 +25,6 @@ func init() {
 }
 
 func main() {
-	var opts option.Option
 
 	parser := flags.NewParser(&opts, flags.Default)
 	parser.Name = "gomilk"
