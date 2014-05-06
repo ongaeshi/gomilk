@@ -6,7 +6,6 @@ import (
 	"github.com/monochromegane/terminal"
 	"github.com/monochromegane/the_platinum_searcher/search/option"
 	"github.com/ongaeshi/gomilk/search"
-	"github.com/ongaeshi/gomilk/webfind"
 	"os"
 	"runtime"
 	"strings"
@@ -77,12 +76,6 @@ func main() {
 		pattern = args[0]
 	}
 
-	// Create file list from web
-	// @todo Support multi pattern
-	patterns := []string{pattern}
-	webfind.Search(patterns)
-
-	// Search from file list
 	searcher := search.Searcher{root, pattern, &opts}
 	err = searcher.Search()
 	if err != nil {
