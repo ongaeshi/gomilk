@@ -2,12 +2,24 @@ package webfind
 
 import (
 	"fmt"
+	"github.com/monochromegane/the_platinum_searcher/search/grep"
+	"github.com/monochromegane/the_platinum_searcher/search/option"
+	"github.com/monochromegane/the_platinum_searcher/search/pattern"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
 )
+
+type Finder struct {
+	Out    chan *grep.Params
+	Option *option.Option
+}
+
+func (self *Finder) Find(root string, pattern *pattern.Pattern) {
+	close(self.Out)
+}
 
 func readURL(url string) (string, error) {
 	response, err := http.Get(url)
@@ -38,3 +50,4 @@ func Search(args []string) {
 	
 	fmt.Println(contents)
 }
+
