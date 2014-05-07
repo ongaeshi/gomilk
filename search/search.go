@@ -5,7 +5,7 @@ import (
 	"github.com/monochromegane/the_platinum_searcher/search/option"
 	"github.com/monochromegane/the_platinum_searcher/search/pattern"
 	"github.com/monochromegane/the_platinum_searcher/search/print"
-	"github.com/ongaeshi/gomilk/webfind"
+	"github.com/ongaeshi/gomilk/search/find"
 )
 
 type Searcher struct {
@@ -42,7 +42,7 @@ func (self *Searcher) pattern() (*pattern.Pattern, error) {
 }
 
 func (self *Searcher) find(out chan *grep.Params, pattern *pattern.Pattern) {
-	finder := webfind.Finder{out, self.Option}
+	finder := find.Finder{out, self.Option}
 	finder.Find(self.Root, pattern)
 }
 
