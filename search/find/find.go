@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"path/filepath"
 	"strings"
 )
 
@@ -18,7 +19,7 @@ type Finder struct {
 }
 
 func (self *Finder) Find(root string, pattern *pattern.Pattern) {
-	results, err := search([]string{pattern.Pattern})
+	results, err := search(root, []string{pattern.Pattern})
 
 	if err != nil {
 		close(self.Out)
@@ -39,10 +40,12 @@ func (self *Finder) Find(root string, pattern *pattern.Pattern) {
 	close(self.Out)
 }
 
-func search(args []string) ([]string, error) {
-	query := strings.Join(args, " ")
+func search(root string, args []string) ([]string, error) {
+	query   := strings.Join(args, " ")
+	path, _ := filepath.Abs(root)
+	url     := fmt.Sprintf("http://127.0.0.1:9292/gmilk?dir=%s&query=%s", url.QueryEscape(path), url.QueryEscape(query))  // @todo package, port, address
 
-	contents, err := readURL(fmt.Sprintf("http://127.0.0.1:9292/gmilk?package=milkode&query=%s", url.QueryEscape(query))) // @todo package, port, address
+	contents, err := readURL(url)
 
 	if err != nil {
 		return []string{}, err
