@@ -2,10 +2,10 @@ package find
 
 import (
 	"fmt"
-	"github.com/monochromegane/the_platinum_searcher/search/file"
-	"github.com/monochromegane/the_platinum_searcher/search/grep"
-	"github.com/monochromegane/the_platinum_searcher/search/option"
-	"github.com/monochromegane/the_platinum_searcher/search/pattern"
+	"github.com/ongaeshi/gomilk/search/file"
+	"github.com/ongaeshi/gomilk/search/grep"
+	"github.com/ongaeshi/gomilk/search/option"
+	"github.com/ongaeshi/gomilk/search/pattern"
 	"io/ioutil"
 	"net/http"
 	"net/url"

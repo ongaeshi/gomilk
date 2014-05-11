@@ -4,7 +4,7 @@ import (
 	"fmt"
 	flags "github.com/jessevdk/go-flags"
 	"github.com/monochromegane/terminal"
-	"github.com/monochromegane/the_platinum_searcher/search/option"
+	"github.com/ongaeshi/gomilk/search/option"
 	"github.com/ongaeshi/gomilk/search"
 	"os"
 	"runtime"

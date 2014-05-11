@@ -1,10 +1,10 @@
 package search
 
 import (
-	"github.com/monochromegane/the_platinum_searcher/search/grep"
-	"github.com/monochromegane/the_platinum_searcher/search/option"
-	"github.com/monochromegane/the_platinum_searcher/search/pattern"
-	"github.com/monochromegane/the_platinum_searcher/search/print"
+	"github.com/ongaeshi/gomilk/search/grep"
+	"github.com/ongaeshi/gomilk/search/option"
+	"github.com/ongaeshi/gomilk/search/pattern"
+	"github.com/ongaeshi/gomilk/search/print"
 	"github.com/ongaeshi/gomilk/search/find"
 )
 
