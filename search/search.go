@@ -5,7 +5,7 @@ import (
 	"github.com/ongaeshi/gomilk/search/option"
 	"github.com/ongaeshi/gomilk/search/pattern"
 	"github.com/ongaeshi/gomilk/search/print"
-	"github.com/ongaeshi/gomilk/search/find"
+	"github.com/ongaeshi/gomilk/find"
 )
 
 type Searcher struct {
