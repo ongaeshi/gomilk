@@ -56,10 +56,6 @@ func main() {
 
 	opts.Proc = runtime.NumCPU()
 
-	opts.NoGroup = true
-	opts.NoColor = true
-	opts.SmartCase = true
-
 	if !terminal.IsTerminal(os.Stdout) {
 		opts.NoColor = true
 		opts.NoGroup = true
