@@ -55,7 +55,27 @@ func (self *Finder) search(root string, args []string) ([]string, error) {
 		return []string{}, err
 	}
 	
-	return strings.Fields(contents), nil
+	// Get absolute path array from 'milk web -F'
+	apaths := strings.Fields(contents)
+
+	// abs -> abs
+	// return apaths, nil
+
+	// abs -> relative
+	currentDir, _ := filepath.Abs(".")
+	rpaths := make([]string, len(apaths))
+
+	for i, apath := range apaths {
+		rpath, err := filepath.Rel(currentDir, apath)
+
+		if (err == nil) {
+			rpaths[i] = rpath
+		} else {
+			rpaths[i] = apaths[i]
+		}
+	}
+
+	return rpaths, nil
 }
 
 func readURL(url string) (string, error) {
