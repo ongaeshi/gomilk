@@ -18,6 +18,7 @@ type Option struct {
 	OutputEncode     []string `short:"o" long:"output-encode" description:"Specify output encoding (none, jis, sjis, euc)"`
 	Proc             int      // Number of goroutine. Not user option.
 	Version          bool     `long:"version" description:"Show version"`
+	All              bool     `short:"a" long:"all" description:"Search all packages"`
 }
 
 func (self *Option) VcsIgnores() []string {

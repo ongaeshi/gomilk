@@ -19,7 +19,7 @@ type Finder struct {
 }
 
 func (self *Finder) Find(root string, pattern *pattern.Pattern) {
-	results, err := search(root, []string{pattern.Pattern})
+	results, err := self.search(root, []string{pattern.Pattern})
 
 	if err != nil {
 		close(self.Out)
@@ -40,10 +40,14 @@ func (self *Finder) Find(root string, pattern *pattern.Pattern) {
 	close(self.Out)
 }
 
-func search(root string, args []string) ([]string, error) {
+func (self *Finder) search(root string, args []string) ([]string, error) {
 	query   := strings.Join(args, " ")
 	path, _ := filepath.Abs(root)
-	url     := fmt.Sprintf("http://127.0.0.1:9292/gmilk?dir=%s&query=%s", url.QueryEscape(path), url.QueryEscape(query))  // @todo package, port, address
+	url     := fmt.Sprintf("http://127.0.0.1:9292/gmilk?dir=%s&query=%s", url.QueryEscape(path), url.QueryEscape(query)) // @todo port, address
+
+	if (self.Option.All) {
+		url += "&all=1"
+	}
 
 	contents, err := readURL(url)
 
