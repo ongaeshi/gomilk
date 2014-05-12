@@ -19,6 +19,7 @@ type Option struct {
 	Proc             int      // Number of goroutine. Not user option.
 	Version          bool     `long:"version" description:"Show version"`
 	All              bool     `short:"a" long:"all" description:"Search all packages"`
+	ExpandPath       bool     `long:"expand-path" description:"Display absolute path"`
 }
 
 func (self *Option) VcsIgnores() []string {
