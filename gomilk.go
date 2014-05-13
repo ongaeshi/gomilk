@@ -7,6 +7,7 @@ import (
 	"github.com/ongaeshi/gomilk/search/option"
 	"github.com/ongaeshi/gomilk/search"
 	"os"
+	"os/exec"
 	"runtime"
 	"strings"
 )
@@ -74,6 +75,11 @@ func main() {
 	pattern := ""
 	if len(args) > 0 {
 		pattern = args[0]
+	}
+
+	if opts.Update {
+		cmd := exec.Command("milk", "update")
+		cmd.Run()
 	}
 
 	searcher := search.Searcher{root, pattern, &opts}

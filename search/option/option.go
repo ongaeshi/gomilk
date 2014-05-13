@@ -20,6 +20,7 @@ type Option struct {
 	Version          bool     `long:"version" description:"Show version"`
 	All              bool     `short:"a" long:"all" description:"Search all packages"`
 	ExpandPath       bool     `long:"expand-path" description:"Display absolute path"`
+	Update           bool     `short:"u" long:"update" description:"With update database"`
 }
 
 func (self *Option) VcsIgnores() []string {
