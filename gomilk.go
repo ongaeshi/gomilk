@@ -6,6 +6,7 @@ import (
 	"github.com/monochromegane/terminal"
 	"github.com/ongaeshi/gomilk/search/option"
 	"github.com/ongaeshi/gomilk/search"
+	"log"
 	"os"
 	"os/exec"
 	"runtime"
@@ -79,7 +80,14 @@ func main() {
 
 	if opts.Update {
 		cmd := exec.Command("milk", "update")
-		cmd.Run()
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		
+		err := cmd.Run()
+
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	searcher := search.Searcher{root, pattern, &opts}
