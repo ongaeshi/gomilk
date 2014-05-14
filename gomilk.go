@@ -30,7 +30,7 @@ func main() {
 
 	parser := flags.NewParser(&opts, flags.Default)
 	parser.Name = "gomilk"
-	parser.Usage = "[OPTIONS] PATTERN [PATH]"
+	parser.Usage = "[OPTIONS] PATTERN1 [PATTERN2 ..]"
 
 	args, err := parser.Parse()
 	if err != nil {

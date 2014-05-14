@@ -1,6 +1,10 @@
 package option
 
 type Option struct {
+	All              bool     `short:"a" long:"all" description:"Search all packages"`
+	Directory        string   `short:"d" long:"directory" description:"Specify root directory"`
+	Update           bool     `short:"u" long:"update" description:"With update database"`
+	ExpandPath       bool     `long:"expand-path" description:"Display absolute path"`
 	NoColor          bool     `long:"nocolor" description:"Don't print color codes in results (Disabled by default)"`
 	NoGroup          bool     `long:"nogroup" description:"Don't print file name at header (Disabled by default)"`
 	FilesWithMatches bool     `short:"l" long:"files-with-matches" description:"Only print filenames that contain matches"`
@@ -18,10 +22,6 @@ type Option struct {
 	OutputEncode     []string `short:"o" long:"output-encode" description:"Specify output encoding (none, jis, sjis, euc)"`
 	Proc             int      // Number of goroutine. Not user option.
 	Version          bool     `long:"version" description:"Show version"`
-	All              bool     `short:"a" long:"all" description:"Search all packages"`
-	ExpandPath       bool     `long:"expand-path" description:"Display absolute path"`
-	Update           bool     `short:"u" long:"update" description:"With update database"`
-	Directory        string   `short:"d" long:"directory" description:"Start directory"`
 }
 
 func (self *Option) VcsIgnores() []string {
