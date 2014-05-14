@@ -47,9 +47,15 @@ func main() {
 		os.Exit(1)
 	}
 
+	if len(args) >= 2 {
+		fmt.Println("AND search does not currently support")
+		os.Exit(1)
+	}
+
 	var root = "."
-	if len(args) == 2 {
-		root = strings.TrimRight(args[1], "\"")
+
+	if opts.Directory != "" {
+		root = strings.TrimRight(opts.Directory, "\"")
 		_, err := os.Lstat(root)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s\n", err)

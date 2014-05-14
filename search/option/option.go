@@ -21,6 +21,7 @@ type Option struct {
 	All              bool     `short:"a" long:"all" description:"Search all packages"`
 	ExpandPath       bool     `long:"expand-path" description:"Display absolute path"`
 	Update           bool     `short:"u" long:"update" description:"With update database"`
+	Directory        string   `short:"d" long:"directory" description:"Start directory"`
 }
 
 func (self *Option) VcsIgnores() []string {
