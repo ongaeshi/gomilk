@@ -9,6 +9,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"runtime"
 	"strings"
 )
@@ -79,6 +80,9 @@ func main() {
 	}
 
 	if opts.Update {
+		prevDir, _ := filepath.Abs(".")
+		os.Chdir(root)
+		
 		cmd := exec.Command("milk", "update")
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
@@ -88,6 +92,8 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		os.Chdir(prevDir)
 	}
 
 	searcher := search.Searcher{root, pattern, &opts}
