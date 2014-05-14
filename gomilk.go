@@ -89,7 +89,13 @@ func main() {
 		prevDir, _ := filepath.Abs(".")
 		os.Chdir(root)
 
-		cmd := exec.Command("milk", "update")
+		command := "milk"
+
+		if runtime.GOOS == "windows" {
+			command = "milk.bat"
+		}
+
+		cmd := exec.Command(command, "update")
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 
