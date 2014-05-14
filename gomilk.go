@@ -1,11 +1,11 @@
 package main
- 
+
 import (
 	"fmt"
 	flags "github.com/jessevdk/go-flags"
 	"github.com/monochromegane/terminal"
-	"github.com/ongaeshi/gomilk/search/option"
 	"github.com/ongaeshi/gomilk/search"
+	"github.com/ongaeshi/gomilk/search/option"
 	"log"
 	"os"
 	"os/exec"
@@ -88,11 +88,11 @@ func main() {
 	if opts.Update {
 		prevDir, _ := filepath.Abs(".")
 		os.Chdir(root)
-		
+
 		cmd := exec.Command("milk", "update")
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
-		
+
 		err := cmd.Run()
 
 		if err != nil {
