@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"path/filepath"
 	"strings"
 )
@@ -52,9 +53,17 @@ func (self *Finder) search(root string, args []string) ([]string, error) {
 	contents, err := readURL(url)
 
 	if err != nil {
-		return []string{}, err
+		fmt.Printf("%s\n", err)
+		fmt.Printf("Need \"milk web --gomilk\"\n")
+		os.Exit(1)
 	}
-	
+
+	if contents == "Error:" {
+		fmt.Printf("Get %s: response is \"Error:\"\n", url)
+		fmt.Printf("Need \"milk web --gomilk\"\n")
+		os.Exit(1)
+	}
+
 	// Get absolute path array from 'milk web -F'
 	apaths := strings.Fields(contents)
 
