@@ -108,6 +108,10 @@ func main() {
 		os.Chdir(prevDir)
 	}
 
+	if opts.Port == 0 {
+		opts.Port = 9292
+	}
+
 	searcher := search.Searcher{root, pattern, &opts}
 	err = searcher.Search()
 	if err != nil {
