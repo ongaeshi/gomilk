@@ -42,11 +42,11 @@ func (self *Finder) Find(root string, pattern *pattern.Pattern) {
 }
 
 func (self *Finder) search(root string, args []string) ([]string, error) {
-	query   := strings.Join(args, " ")
+	query := strings.Join(args, " ")
 	path, _ := filepath.Abs(root)
-	url     := fmt.Sprintf("http://127.0.0.1:9292/gomilk?dir=%s&query=%s", url.QueryEscape(path), url.QueryEscape(query)) // @todo port, address
+	url := fmt.Sprintf("http://127.0.0.1:9292/gomilk?dir=%s&query=%s", url.QueryEscape(path), url.QueryEscape(query)) // @todo port, address
 
-	if (self.Option.All) {
+	if self.Option.All {
 		url += "&all=1"
 	}
 
@@ -67,7 +67,7 @@ func (self *Finder) search(root string, args []string) ([]string, error) {
 	// Get absolute path array from 'milk web -F'
 	apaths := strings.Fields(contents)
 
-	if (self.Option.ExpandPath) {
+	if self.Option.ExpandPath {
 		// abs -> abs
 		return apaths, nil
 
@@ -79,7 +79,7 @@ func (self *Finder) search(root string, args []string) ([]string, error) {
 		for i, apath := range apaths {
 			rpath, err := filepath.Rel(currentDir, apath)
 
-			if (err == nil) {
+			if err == nil {
 				rpaths[i] = rpath
 			} else {
 				rpaths[i] = apaths[i]
@@ -92,19 +92,17 @@ func (self *Finder) search(root string, args []string) ([]string, error) {
 
 func readURL(url string) (string, error) {
 	response, err := http.Get(url)
-	
+
 	if err != nil {
 		return "", err
 	}
 
 	defer response.Body.Close()
 	contents, err := ioutil.ReadAll(response.Body)
-	
+
 	if err != nil {
 		return "", err
 	}
 
 	return string(contents), nil
 }
-
-
