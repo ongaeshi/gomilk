@@ -11,6 +11,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 )
 
@@ -58,15 +59,20 @@ func (self *Finder) search(root string, args []string) ([]string, error) {
 		os.Exit(1)
 	}
 
-	if contents == "Error:" {
-		fmt.Printf("Get %s: response is \"Error:\"\n", url)
-		fmt.Printf("Need \"milk web --gomilk\"\n")
-		os.Exit(1)
+	// Get absolute path array from 'milk web -g'
+	apaths := strings.Split(contents, "\n")
+
+	// Error?
+	if len(apaths) > 0 {
+		submatch := regexp.MustCompile("Error: (.*)").FindSubmatch([]byte(apaths[0]))
+		if len(submatch) > 0 && submatch[1] != nil {
+			fmt.Printf("Get %s: response is error\n", url)
+			fmt.Printf("%s\n", submatch[1])
+			os.Exit(1)
+		}
 	}
 
-	// Get absolute path array from 'milk web -F'
-	apaths := strings.Fields(contents)
-
+	// Return match paths
 	if self.Option.ExpandPath {
 		// abs -> abs
 		return apaths, nil
