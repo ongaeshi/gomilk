@@ -75,7 +75,7 @@ user	0m0.427s
 sys	0m0.091s
 ```
 
-Search all package.
+Search all packages.
 
 ```
 $ cd ~
