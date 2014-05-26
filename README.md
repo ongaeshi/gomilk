@@ -3,7 +3,7 @@
 Gomilk is a faster Gmilk written by Go.
 Gmilk is the command line tool for [Milkode](https://github.com/ongaeshi/milkode).
 
-Search the source code of 40000 files in 0.5 seconds.
+Search the source code of **40000 files in 0.5 seconds**.
 
 ## Installation
 
@@ -30,11 +30,20 @@ $ milk web -g
 
 ### 3. Search
 
+The basic usage same as [Gmilk](https://github.com/ongaeshi/milkode#search-command-line).
+
+```
+$ gomilk search_keyword
+.
+lib/a.txt:1: test aaa
+test/b.txt:1: test bbb
+```
+
 ## Performance Test
 
 OSX 10.7.5, Core2 Duo 3.06 GHz, 8 GB RAM.
 
-Test on Ruby-2.1.2.
+Test on Ruby-2.1.2. (4722 files)
 
 ```
 $ cd ./ruby-2.1.2
@@ -52,7 +61,7 @@ user	0m0.062s
 sys	0m0.024s
 ```
 
-Test on linux-3.10-rc4.
+Test on linux-3.10-rc4. (45752 files)
 
 ```
 $ cd ./linux-3.10-rc4
@@ -75,7 +84,7 @@ user	0m0.427s
 sys	0m0.091s
 ```
 
-Search all packages.
+Search all packages. (50474 files)
 
 ```
 $ cd ~
