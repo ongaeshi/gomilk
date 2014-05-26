@@ -43,7 +43,7 @@ test/b.txt:1: test bbb
 
 OSX 10.7.5, Core2 Duo 3.06 GHz, 8 GB RAM.
 
-Test on Ruby-2.1.2. (4722 files)
+Test on Ruby-2.1.2. (0.281 seconds 4722 files)
 
 ```
 $ cd ./ruby-2.1.2
@@ -61,7 +61,7 @@ user	0m0.062s
 sys	0m0.024s
 ```
 
-Test on linux-3.10-rc4. (45752 files)
+Test on linux-3.10-rc4. (0.584 seconds 45752 files)
 
 ```
 $ cd ./linux-3.10-rc4
@@ -84,7 +84,7 @@ user	0m0.427s
 sys	0m0.091s
 ```
 
-Search all packages. (50474 files)
+Search all packages. (0.638 seconds 50474 files)
 
 ```
 $ cd ~
