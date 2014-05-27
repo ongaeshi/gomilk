@@ -1,4 +1,5 @@
-task :default => [:push, :build]
+task :default => :build
+task :release => [:push, :build]
 
 GO = '~/Documents/go-cross-compile/go/bin/go'
 
