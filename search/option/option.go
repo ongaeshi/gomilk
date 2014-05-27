@@ -4,7 +4,7 @@ type Option struct {
 	All              bool     `short:"a" long:"all" description:"Search all packages"`
 	Directory        string   `short:"d" long:"directory" description:"Specify root directory"`
 	Update           bool     `short:"u" long:"update" description:"With update database"`
-	Port             int      `short:"p" long:"port" description:"Use PORT (Default: 9292)"`
+	Port             int      `long:"port" description:"Use PORT (Default: 9292)"`
 	ExpandPath       bool     `long:"expand-path" description:"Display absolute path"`
 	NoColor          bool     `long:"nocolor" description:"Don't print color codes in results (Disabled by default)"`
 	NoGroup          bool     `long:"nogroup" description:"Don't print file name at header (Disabled by default)"`
