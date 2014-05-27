@@ -1,4 +1,4 @@
-task :default => :build
+task :default => [:push, :build]
 
 GO = '~/Documents/go-cross-compile/go/bin/go'
 
@@ -35,5 +35,12 @@ task :build do
   build('darwin', 'amd64')
   build('windows', 'amd64')
   build('linux', 'amd64')
+end
+
+desc "Push the repository"
+task :push do
+  system("git tag v#{version}")
+  system("git push --tag")
+  system("git push")
 end
 
