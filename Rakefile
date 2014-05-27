@@ -3,7 +3,18 @@ task :default => :build
 GO = '~/Documents/go-cross-compile/go/bin/go'
 
 def version
-  '0.2.0'
+  return @version if @version
+  
+  open('gomilk.go') do |f|
+    f.each do |line|
+      if line =~ /const version = "(.*)"/
+        @version = $1
+        return @version
+      end
+    end
+  end
+
+  raise
 end
 
 def zip_filename(os, fmt)
