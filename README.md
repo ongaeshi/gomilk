@@ -9,8 +9,9 @@ Search the source code of **40000 files in 0.5 seconds**.
 
 Download from here or "go build".
 
-- [gomilk-0.1.0-darwin-amd64.zip](https://dl.dropboxusercontent.com/u/28734381/gomilk-0.1.0-darwin-amd64.zip)
-- [gomilk-0.1.0-windows-amd64.zip](https://dl.dropboxusercontent.com/u/28734381/gomilk-0.1.0-windows-amd64.zip)
+- [gomilk-0.2.0-darwin-amd64.zip](https://dl.dropboxusercontent.com/u/28734381/gomilk-0.2.0-darwin-amd64.zip)
+- [gomilk-0.2.0-windows-amd64.zip](https://dl.dropboxusercontent.com/u/28734381/gomilk-0.2.0-windows-amd64.zip)
+- [gomilk-0.2.0-linux-amd64.zip](https://dl.dropboxusercontent.com/u/28734381/gomilk-0.2.0-linux-amd64.zip)
 
 Put the "gomilk" binary into PATH directory.
 
